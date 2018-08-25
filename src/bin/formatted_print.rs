@@ -8,6 +8,18 @@ impl fmt::Display for Rectangle {
     }
 }
 
+#[derive(Debug)]
+struct Complex {
+    real: f64,
+    imag: f64
+}
+
+impl fmt::Display for Complex {
+    fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
+        write!(f, "{} +{}i", self.real, self.imag)
+    }
+}
+
 fn main() {
     println!("{}", 32);
     println!("{1} {0}", 2, 3);
@@ -25,4 +37,7 @@ fn main() {
     println!("{:.3}", pi);
 
     println!("{}", Rectangle(3, 4));
+
+    println!("{:?}", Complex{ real: 3.3, imag: 7.2 });
+    println!("{}", Complex{ real: 3.3, imag: 7.2 });
 }
