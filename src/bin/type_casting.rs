@@ -9,7 +9,7 @@ fn main() {
     println!("  -1 as a u8 is : {}", (-1i8) as u8);
     println!("1000 mod 256 is : {}", 1000 % 256);
     println!(" 128 as a i16 is: {}", 128 as i16);
-    println!(" 128 as a i8 is : {}", 128 as i8);
-    println!("1000 as a u8 is : {}", 1000 as u8);
-    println!(" 232 as a i8 is : {}", 232 as i8);
+    println!(" 127 as a i8 is : {}", 127 as i8);
+    println!("254 as a u8 is : {}", 254 as u8);
+    println!(" 10 as a i8 is : {}", 10 as i8);
 }
