@@ -12,4 +12,5 @@ fn main() {
 
     let pi = 3.1415926;
     println!("{:.*}", 3, pi);
+    println!("{:.3}", pi);
 }
