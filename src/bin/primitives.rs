@@ -1,4 +1,5 @@
 use std::fmt;
+use std::mem;
 
 struct Matrix(f32, f32, f32, f32);
 impl fmt::Display for Matrix {
@@ -24,4 +25,12 @@ fn main() {
 
     println!("{}", Matrix(1.1, 1.2, 2.1, 2.2));
     println!("{}", transpose(Matrix(1.1, 1.2, 2.1, 2.2)));
+
+    let a: [i32; 5] = [0; 5];
+    println!("{:?}", a);
+    println!("{}", a.len());
+    println!("{}", mem::size_of_val(&a));
+
+    let slice = &a[1..4];
+    println!("{:?}", slice);
 }
