@@ -7,5 +7,6 @@ fn test() -> Container {
 }
 
 fn main() {
-    let _x = test();
+    let x = test();
+    println!("{}", x.bytes);
 }
