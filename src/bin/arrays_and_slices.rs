@@ -32,5 +32,5 @@ fn main() {
     analyze_slice(&ys[1..4]);
 
     // Out of bound indexing yields a panic
-    println!("{}", xs[5]);
+    //println!("{}", xs[5]);
 }
