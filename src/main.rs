@@ -1,3 +1,5 @@
+extern crate rustbyexample;
+
 fn main() {
-    println!("hello, world");
+    rustbyexample::client::connect();
 }
