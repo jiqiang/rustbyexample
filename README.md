@@ -37,3 +37,7 @@ The variants of an enum are defined under the same enum type, so when we need to
 #### 8.2 Strings
 
 A `String` is a wrapper of `Vec<u8>`.
+
+#### 8.3 Hash Maps
+
+Like vectors, hash maps are homogeneous: all of the keys must have the same type, and all of the values must have the same type.
