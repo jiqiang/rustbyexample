@@ -33,3 +33,7 @@ let row = vec![
 ```
 
 The variants of an enum are defined under the same enum type, so when we need to store elements of a different type in a vector, we can define and use an enum.
+
+#### 8.2 Strings
+
+A `String` is a wrapper of `Vec<u8>`.

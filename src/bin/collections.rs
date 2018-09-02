@@ -23,4 +23,8 @@ fn main() {
     let s5 = String::from("Li");
     let s6 = format!("{}{}", s4, s5);
     println!("{}", s6);
+
+    for c in "我是一個中國人".chars() {
+        println!("{}", c);
+    }
 }
