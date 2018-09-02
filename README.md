@@ -17,3 +17,19 @@ let v = vec![1, 2, 3];
 ```
 
 Because we’ve given initial `i32` values, Rust can infer that the type of `v` is `Vec<i32>`, and the type annotation isn’t necessary.
+
+```rust
+enum SpreadsheetCell {
+    Int(i32),
+    Float(f64),
+    Text(String)
+}
+
+let row = vec![
+    SpreadsheetCell::Int(3),
+    SpreadsheetCell::Text(String::from("blue)),
+    SpreadsheetCell::Float(10.12)
+];
+```
+
+The variants of an enum are defined under the same enum type, so when we need to store elements of a different type in a vector, we can define and use an enum.
