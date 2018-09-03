@@ -41,3 +41,27 @@ A `String` is a wrapper of `Vec<u8>`.
 #### 8.3 Hash Maps
 
 Like vectors, hash maps are homogeneous: all of the keys must have the same type, and all of the values must have the same type.
+
+# 9. Error Handling
+
+Rust groups errors into two major categories: *recoverable* and *unrecoverable* errors. For a recoverable error, such as a file not found error, it’s reasonable to report the problem to the user and retry the operation. Unrecoverable errors are always symptoms of bugs, like trying to access a location beyond the end of an array.
+
+#### 9.1 Unrecoverable Errors with panic!
+
+ The key to reading the backtrace is to start from the top and read until you see files you wrote. That’s the spot where the problem originated. The lines above the lines mentioning your files are code that your code called; the lines below are code that called your code.
+
+ #### 9.2 Recoverable Errors with Result
+
+ *Match guard* is an extra condition on a match arm that further refines the arm’s pattern. This condition must be true for that arm’s code to be run; otherwise, the pattern matching will move on to consider the next arm in the `match`.
+
+ The reason you use `ref` to create a reference in a pattern instead of `&` will be covered in detail in Chapter 18. In short, in the context of a pattern, `&` matches a reference and gives you its value, but `ref` matches a value and gives you a reference to it.
+
+ Using `expect` instead of `unwrap` and providing good error messages can convey your intent and make tracking down the source of a panic easier.
+
+ Error values taken by `?` go through the `from` function, defined in the `From` trait in the standard library, which is used to convert errors from one type into another. When `?` calls the `from` function, the error type received is converted into the error type defined in the return type of the current function. This is useful when a function returns one error type to represent all the ways a function might fail, even if parts might fail for many different reasons.
+
+ The `?` operator can only be used in functions that have a return type of `Result`, because it is defined to work in the same way as the match expression.
+
+#### 9.3 To `panic!` or Not to `panic!`
+
+ It’s advisable to have your code panic when it’s possible that your code could end up in a bad state. 
