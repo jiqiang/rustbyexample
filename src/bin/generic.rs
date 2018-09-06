@@ -15,6 +15,12 @@ struct Point<T, U> {
     y: U
 }
 
+impl<T, U> Point<T, U> {
+    fn x(&self) -> &T {
+        &self.x
+    }
+}
+
 fn main() {
     let list = vec![3, 2, 4, 6, 1];
     let largest = largest(&list);
@@ -28,4 +34,5 @@ fn main() {
 
     let p3 = Point {x: 1, y: 2.0};
     println!("{:?}", p3);
+    println!("{}", p3.x());
 }
