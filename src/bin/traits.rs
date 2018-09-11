@@ -44,8 +44,15 @@ impl Summary for Tweet {
 //     println!("{}", item.summarize());
 // }
 
-fn notify<T: Summary + Acronym>(item: T) {
+fn notify<T: Summary + Acronym>(item: &T) {
     println!("{}-{}", item.summarize(), item.acronym_name());
+}
+
+fn notify2<T, U>(t: &T, u: &U)
+    where T: Summary,
+          U: Acronym
+{
+    println!("{}={}", t.summarize(), u.acronym_name());
 }
 
 fn main() {
@@ -54,6 +61,13 @@ fn main() {
         content: String::from("of course, as you probably already know, people"),
         reply: false,
         retweet: false
+    };
+
+    let tweet2 = Tweet {
+        username: String::from("jiqiang"),
+        content: String::from("Glenn is a good man"),
+        reply: true,
+        retweet: true
     };
 
     println!("1 new tweet: {}", tweet.summarize());
@@ -67,5 +81,6 @@ fn main() {
 
     println!("{}", news_article.summarize());
 
-    notify(tweet);
+    notify(&tweet);
+    notify2(&tweet, &tweet2);
 }
