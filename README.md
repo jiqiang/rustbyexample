@@ -65,3 +65,9 @@ Rust groups errors into two major categories: *recoverable* and *unrecoverable* 
 #### 9.3 To `panic!` or Not to `panic!`
 
  It’s advisable to have your code panic when it’s possible that your code could end up in a bad state. 
+
+ # 10. Generic Types, Traits, and Lifetimes
+
+ #### 10.2 Traits: Defining Shared Behavior
+
+ One restriction to note with trait implementations is that we can implement a trait on a type only if either the trait or the type is local to our crate.
