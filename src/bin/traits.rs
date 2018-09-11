@@ -30,6 +30,10 @@ impl Summary for Tweet {
     }
 }
 
+// fn notify(item: impl Summary) {
+//     println!("{}", item.summarize());
+// }
+
 fn main() {
     let tweet = Tweet {
         username: String::from("horse_ebooks"),
@@ -48,4 +52,6 @@ fn main() {
     };
 
     println!("{}", news_article.summarize());
+
+    // notify(tweet);
 }
