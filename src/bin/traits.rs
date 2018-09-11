@@ -4,6 +4,10 @@ trait Summary {
     }
 }
 
+trait Acronym {
+    fn acronym_name(&self) -> String;
+}
+
 struct NewsArticle {
     headline: String,
     location: String,
@@ -24,6 +28,12 @@ struct Tweet {
     retweet: bool
 }
 
+impl Acronym for Tweet {
+    fn acronym_name(&self) -> String {
+        format!("{}", self.username)
+    }
+}
+
 impl Summary for Tweet {
     fn summarize(&self) -> String {
         format!("{}: {} {} {}", self.username, self.content, self.reply, self.retweet)
@@ -34,8 +44,8 @@ impl Summary for Tweet {
 //     println!("{}", item.summarize());
 // }
 
-fn notify<T: Summary>(item: T) {
-    println!("{}", item.summarize());
+fn notify<T: Summary + Acronym>(item: T) {
+    println!("{}-{}", item.summarize(), item.acronym_name());
 }
 
 fn main() {
