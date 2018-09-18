@@ -71,3 +71,13 @@ Rust groups errors into two major categories: *recoverable* and *unrecoverable* 
  #### 10.2 Traits: Defining Shared Behavior
 
  One restriction to note with trait implementations is that we can implement a trait on a type only if either the trait or the type is local to our crate.
+
+ #### 10.3 Validating References with Lifetimes
+
+ ##### Lifetime Elision Rules:
+ 1. Each parameter that is a reference gets its own lifetime parameter.
+ 2. If there is exactly one input lifetime parameter, that lifetime is assigned to all output lifetime parameters.
+ 3. If there are multiple input lifetime parameters, but one of them is `&self` or `&mut self` because this is a method, the lifetime of `self` is assigned to all output lifetime parameters.
+
+ Where we declare and use the lifetime parameters depends on whether they're related to the struct fields or the method parameters and return values.
+ 
