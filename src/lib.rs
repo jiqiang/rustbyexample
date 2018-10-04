@@ -16,6 +16,10 @@ pub fn add_two(a: i32) -> i32 {
     a + 2
 }
 
+pub fn should_panic() {
+    panic!("I am panic");
+}
+
 #[cfg(test)]
 mod tests {
     use super::*;
@@ -46,5 +50,11 @@ mod tests {
     #[test]
     fn it_adds_two() {
         assert_eq!(5, add_two(3));
+    }
+
+    #[test]
+    #[should_panic]
+    fn it_should_panic() {
+        should_panic();
     }
 }
