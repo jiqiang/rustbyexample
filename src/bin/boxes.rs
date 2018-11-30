@@ -24,6 +24,16 @@ impl<T> MyBox<T> {
     }
 }
 
+struct Person {
+    name: String
+}
+
+impl Drop for Person {
+    fn drop(&mut self) {
+        println!("{}", self.name)
+    }
+}
+
 fn main() {
     let list = Cons(1, Box::new(Cons(2, Box::new(Cons(3, Box::new(Nil))))));
     println!("{:?}", list);
@@ -37,4 +47,7 @@ fn main() {
     let y1 = MyBox::new(x1);
     assert_eq!(5, x1);
     assert_eq!(5, *y1);
+
+    let _p1 = Person { name: String::from("Glenn")};
+    let _p2 = Person { name: String::from("Joy")};
 }
