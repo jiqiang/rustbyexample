@@ -1,8 +1,9 @@
 use std::thread;
 use std::time::Duration;
 use std::sync::mpsc;
+use std::sync::{Mutex, Arc};
 
-fn main() {
+fn message_passing() {
     let (tx, rx) = mpsc::channel();
 
     let tx1 = mpsc::Sender::clone(&tx);
@@ -35,4 +36,38 @@ fn main() {
     for received in rx {
         println!("Got: {}", received);
     }
+}
+
+fn shared_state() {
+    let m = Mutex::new(5);
+    {
+        let mut num = m.lock().unwrap();
+        *num = 6;
+    }
+    println!("m = {:?}", m);
+}
+
+fn share_state_between_threads() {
+    let counter = Arc::new(Mutex::new(0));
+    let mut handles = vec![];
+    for _ in 0..10 {
+        let counter = Arc::clone(&counter);
+        let handle = thread::spawn(move || {
+            let mut num = counter.lock().unwrap();
+            *num += 1;
+        });
+        handles.push(handle);
+    }
+
+    for handle in handles {
+        handle.join().unwrap();
+    }
+
+    println!("Result: {}", *counter.lock().unwrap());
+}
+
+fn main() {
+    // message_passing();
+    // shared_state();
+    share_state_between_threads();
 }
