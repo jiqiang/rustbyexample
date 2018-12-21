@@ -67,7 +67,7 @@ fn share_state_between_threads() {
 }
 
 fn main() {
-    // message_passing();
-    // shared_state();
+    message_passing();
+    shared_state();
     share_state_between_threads();
 }
