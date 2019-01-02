@@ -7,7 +7,7 @@ fn message_passing() {
     let (tx, rx) = mpsc::channel();
 
     let tx1 = mpsc::Sender::clone(&tx);
-    thread::spawn(move || {        
+    thread::spawn(move || {
         let vals = vec![
             String::from("hi"),
             String::from("from"),
@@ -20,7 +20,7 @@ fn message_passing() {
         }
     });
 
-    thread::spawn(move || {        
+    thread::spawn(move || {
         let vals = vec![
             String::from("more"),
             String::from("messages"),

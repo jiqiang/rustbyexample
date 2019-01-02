@@ -24,7 +24,7 @@ fn inspect(event: WebEvent) {
         // Destructure `c` from inside the `enum`.
         WebEvent::KeyPress(c) => println!("pressed {}", c),
         WebEvent::Paste(s) => println!("pasted \"{}\".", s),
-        // Destructure `Click` into `x` and `y`. 
+        // Destructure `Click` into `x` and `y`.
         WebEvent::Click { x, y } => {
             println!("clicked at x={}, y={}", x, y);
         }
