@@ -12,7 +12,7 @@ enum WebEvent {
     KeyPress(char),
     Paste(String),
     // or like structures.
-    Click { x: i64, y: i64 }
+    Click { x: i64, y: i64 },
 }
 
 // A function which takes a `WebEvent` enum as an argument and

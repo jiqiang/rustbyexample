@@ -2,16 +2,16 @@
 
 enum Status {
     Rich,
-    Poor
+    Poor,
 }
 
 enum Work {
     Civilian,
-    Soldier
+    Soldier,
 }
 
 fn main() {
-    use Status::{ Poor, Rich };
+    use Status::{Poor, Rich};
     use Work::*;
 
     let status = Poor;
@@ -19,11 +19,11 @@ fn main() {
 
     match status {
         Rich => println!("The rich have lots of money"),
-        Poor => println!("The poor have no money ...")
+        Poor => println!("The poor have no money ..."),
     }
 
     match work {
         Civilian => println!("Civilians work!"),
-        Soldier => println!("Soldiers fight")
+        Soldier => println!("Soldiers fight"),
     }
 }

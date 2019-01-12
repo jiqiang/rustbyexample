@@ -1,6 +1,6 @@
 enum List {
     Cons(u32, Box<List>),
-    Nil
+    Nil,
 }
 
 impl List {
@@ -14,19 +14,15 @@ impl List {
 
     fn len(&self) -> u32 {
         match *self {
-            List::Cons(_, ref tail) => {
-                1 + tail.len()
-            },
-            List::Nil => 0
+            List::Cons(_, ref tail) => 1 + tail.len(),
+            List::Nil => 0,
         }
     }
 
     fn stringify(&self) -> String {
         match *self {
-            List::Cons(head, ref tail) => {
-                format!("{} {}", head, tail.stringify())
-            },
-            List::Nil => format!("Nil")
+            List::Cons(head, ref tail) => format!("{} {}", head, tail.stringify()),
+            List::Nil => format!("Nil"),
         }
     }
 }

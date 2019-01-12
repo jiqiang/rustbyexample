@@ -1,7 +1,7 @@
+use std::sync::mpsc;
+use std::sync::{Arc, Mutex};
 use std::thread;
 use std::time::Duration;
-use std::sync::mpsc;
-use std::sync::{Mutex, Arc};
 
 fn message_passing() {
     let (tx, rx) = mpsc::channel();
@@ -12,7 +12,7 @@ fn message_passing() {
             String::from("hi"),
             String::from("from"),
             String::from("the"),
-            String::from("thread")
+            String::from("thread"),
         ];
         for val in vals {
             tx1.send(val).unwrap();
@@ -25,7 +25,7 @@ fn message_passing() {
             String::from("more"),
             String::from("messages"),
             String::from("for"),
-            String::from("you")
+            String::from("you"),
         ];
         for val in vals {
             tx.send(val).unwrap();

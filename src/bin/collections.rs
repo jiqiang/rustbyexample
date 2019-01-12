@@ -4,7 +4,7 @@ fn main() {
     match v.get(2) {
         Some(i) => {
             println!("{}", i);
-        },
+        }
         None => {
             println!("index is out of range");
         }

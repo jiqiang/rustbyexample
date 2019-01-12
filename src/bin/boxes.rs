@@ -1,7 +1,7 @@
 #[derive(Debug)]
 enum List {
     Cons(i32, Box<List>),
-    Nil
+    Nil,
 }
 
 use List::{Cons, Nil};
@@ -25,7 +25,7 @@ impl<T> MyBox<T> {
 }
 
 struct Person {
-    name: String
+    name: String,
 }
 
 impl Drop for Person {
@@ -48,6 +48,10 @@ fn main() {
     assert_eq!(5, x1);
     assert_eq!(5, *y1);
 
-    let _p1 = Person { name: String::from("Glenn")};
-    let _p2 = Person { name: String::from("Joy")};
+    let _p1 = Person {
+        name: String::from("Glenn"),
+    };
+    let _p2 = Person {
+        name: String::from("Joy"),
+    };
 }

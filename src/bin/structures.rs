@@ -1,7 +1,7 @@
 #[derive(Debug)]
 struct Person<'a> {
     name: &'a str,
-    age: u8
+    age: u8,
 }
 
 // A unit struct
@@ -14,7 +14,7 @@ struct Pair(i32, f32);
 #[derive(Debug)]
 struct Point {
     x: f32,
-    y: f32
+    y: f32,
 }
 
 // Struct can be reused as fields of another struct
@@ -22,7 +22,7 @@ struct Point {
 #[derive(Debug)]
 struct Rectangle {
     p1: Point,
-    p2: Point
+    p2: Point,
 }
 
 fn rect_area(rect: &Rectangle) -> f32 {
@@ -32,8 +32,8 @@ fn rect_area(rect: &Rectangle) -> f32 {
 fn square(p: &Point, w: f32) -> Rectangle {
     return Rectangle {
         p1: Point { x: p.x, y: p.y + w },
-        p2: Point { x: p.x + w, y: p.y }
-    }
+        p2: Point { x: p.x + w, y: p.y },
+    };
 }
 
 fn main() {
@@ -60,7 +60,7 @@ fn main() {
     let _rectangle = Rectangle {
         // struct instantiation is an expression too
         p1: Point { x: my_x, y: my_y },
-        p2: point
+        p2: point,
     };
 
     // Instantiate an unit struct
@@ -83,7 +83,7 @@ fn main() {
 
     let rect = Rectangle {
         p1: Point { x: 0.1, y: 0.1 },
-        p2: Point { x: 0.2, y: 0.2 }
+        p2: Point { x: 0.2, y: 0.2 },
     };
 
     let area = rect_area(&rect);

@@ -18,7 +18,7 @@ fn iterator3() {
     match v_iter.next() {
         Some(i) => {
             *i += 1;
-        },
+        }
         None => {
             println!("{}", -1);
         }

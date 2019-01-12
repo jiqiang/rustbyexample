@@ -1,10 +1,10 @@
 enum List {
     Cons(i32, Rc<List>),
-    Nil
+    Nil,
 }
 
-use List::{Cons, Nil};
 use std::rc::Rc;
+use List::{Cons, Nil};
 
 fn main() {
     let a = Rc::new(Cons(5, Rc::new(Cons(10, Rc::new(Nil)))));

@@ -22,7 +22,10 @@ struct Button {
 
 impl Draw for Button {
     fn draw(&self) {
-        println!("start drawing a button - {} {} {}", self.width, self.height, self.label);
+        println!(
+            "start drawing a button - {} {} {}",
+            self.width, self.height, self.label
+        );
     }
 }
 
@@ -34,7 +37,10 @@ struct SelectBox {
 
 impl Draw for SelectBox {
     fn draw(&self) {
-        println!("start drawing a select box - {} {} {:?}", self.width, self.height, self.options);
+        println!(
+            "start drawing a select box - {} {} {:?}",
+            self.width, self.height, self.options
+        );
     }
 }
 
@@ -47,14 +53,14 @@ fn main() {
                 options: vec![
                     String::from("Yes"),
                     String::from("Maybe"),
-                    String::from("No")
+                    String::from("No"),
                 ],
             }),
             Box::new(Button {
                 width: 50,
                 height: 10,
                 label: String::from("OK"),
-            })
+            }),
         ],
     };
 

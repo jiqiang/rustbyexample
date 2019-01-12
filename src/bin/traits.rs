@@ -12,12 +12,15 @@ struct NewsArticle {
     headline: String,
     location: String,
     author: String,
-    content: String
+    content: String,
 }
 
 impl Summary for NewsArticle {
     fn summarize(&self) -> String {
-        format!("{}, by {} ({}) - {}", self.headline, self.author, self.location, self.content)
+        format!(
+            "{}, by {} ({}) - {}",
+            self.headline, self.author, self.location, self.content
+        )
     }
 }
 
@@ -25,7 +28,7 @@ struct Tweet {
     username: String,
     content: String,
     reply: bool,
-    retweet: bool
+    retweet: bool,
 }
 
 impl Acronym for Tweet {
@@ -36,7 +39,10 @@ impl Acronym for Tweet {
 
 impl Summary for Tweet {
     fn summarize(&self) -> String {
-        format!("{}: {} {} {}", self.username, self.content, self.reply, self.retweet)
+        format!(
+            "{}: {} {} {}",
+            self.username, self.content, self.reply, self.retweet
+        )
     }
 }
 
@@ -49,8 +55,9 @@ fn notify<T: Summary + Acronym>(item: &T) {
 }
 
 fn notify2<T, U>(t: &T, u: &U)
-    where T: Summary,
-          U: Acronym
+where
+    T: Summary,
+    U: Acronym,
 {
     println!("{}={}", t.summarize(), u.acronym_name());
 }
@@ -60,14 +67,14 @@ fn main() {
         username: String::from("horse_ebooks"),
         content: String::from("of course, as you probably already know, people"),
         reply: false,
-        retweet: false
+        retweet: false,
     };
 
     let tweet2 = Tweet {
         username: String::from("jiqiang"),
         content: String::from("Glenn is a good man"),
         reply: true,
-        retweet: true
+        retweet: true,
     };
 
     println!("1 new tweet: {}", tweet.summarize());
@@ -76,7 +83,7 @@ fn main() {
         headline: String::from("Melbourne is the best"),
         location: String::from("Australia Victoria"),
         author: String::from("Glenn ji"),
-        content: String::from("Melbourne is beautiful")
+        content: String::from("Melbourne is beautiful"),
     };
 
     println!("{}", news_article.summarize());
